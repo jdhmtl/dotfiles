@@ -1,0 +1,77 @@
+" ========== Vundle Config ==========
+
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'gmarik/Vundle.vim'
+Plugin 'bling/vim-airline'
+Plugin 'kien/ctrlp.vim'
+Plugin 'rstacruz/sparkup'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-surround'
+Plugin 'vim-ruby/vim-ruby'
+
+call vundle#end()
+filetype plugin indent on
+
+" ========== General Config ==========
+
+syntax on	" Enable syntax highlighting
+
+set number
+set relativenumber
+
+set background=dark
+colorscheme xoria256
+
+set lazyredraw
+set ttyfast
+
+set cursorline
+set laststatus=2 " Make sure airline is always on
+
+set clipboard=unnamed " Yank to the system clipboard
+
+" Load Powerline fonts
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'tomorrow'
+
+command C let @/ = ""
+command NT NERDTreeToggle
+
+" ========== Search Settings ==========
+
+set incsearch	" Search as we type
+set hlsearch	" Highlight search results
+set nowrapscan  " Stop search at end of file
+
+" ========== Turn off swap files ==========
+
+set noswapfile
+set nobackup
+set nowb
+
+" ========== Indentation ==========
+
+set autoindent
+set smartindent
+set expandtab
+set smarttab
+
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+
+set linebreak	" Wrap lines at convenient places
+
+" ========== Split Windows ==========
+
+set splitbelow
+set splitright

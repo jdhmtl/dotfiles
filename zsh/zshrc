@@ -1,0 +1,37 @@
+PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+
+## Includes
+
+if [ -f ~/Code/Dotfiles/shell/aliases ] ; then source ~/Code/Dotfiles/shell/aliases; fi
+if [ -f ~/Code/Dotfiles/shell/git ] ; then source ~/Code/Dotfiles/shell/git; fi
+if [ -f ~/.profile ] ; then source ~/.profile; fi
+
+# History
+
+HISTFILE=~/.zsh/history
+HISTSIZE=1000
+SAVEHIST=1000
+
+setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_NO_STORE
+setopt HIST_IGNORE_SPACE
+
+# Prompt
+
+autoload -U colors
+colors
+
+setopt PROMPT_SUBST
+
+BR=$'\n'
+GIT='$(__git_ps1 " [%s]")'
+PROMPT="${BR}%{$fg[green]%}[%T]%{$fg[blue]%}[%~]%{$fg[yellow]%}${GIT}${BR}%{$fg_bold[white]%}%#%{$reset_color%} "
+
+# Autocomplete
+
+autoload -Uz compinit
+compinit
+
+export PATH
