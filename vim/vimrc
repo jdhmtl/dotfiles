@@ -37,14 +37,11 @@ set ttyfast
 set cursorline
 set laststatus=2 " Make sure airline is always on
 
-set clipboard=unnamed " Yank to the system clipboard
-
 " Load Powerline fonts
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'tomorrow'
 
-command C let @/ = ""
-command NT NERDTreeToggle
+set clipboard=unnamed " Yank to the system clipboard
 
 " ========== Search Settings ==========
 
@@ -75,3 +72,18 @@ set linebreak	" Wrap lines at convenient places
 
 set splitbelow
 set splitright
+
+nnoremap <C-H> <C-W><C-H>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+
+" ========== Basic Key Mappings  ==========
+
+" CtrlP with current directory as a base
+nmap <Leader>p :execute 'CtrlP' getcwd()<CR>
+nmap <Leader>s :SyntasticToggleMode<CR>
+nmap <Leader>[ :bp<CR>
+nmap <Leader>] :bn<CR>
+nmap <Leader>c :let @/ = ""<CR>
+nmap <Leader>n :NERDTreeToggle<CR>
