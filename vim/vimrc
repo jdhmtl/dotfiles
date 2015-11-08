@@ -51,6 +51,8 @@ set incsearch	" Search as we type
 set hlsearch	" Highlight search results
 set nowrapscan  " Stop search at end of file
 
+set wildignore+=*/vendor/** " Ignore files in vendor directory
+
 " ========== Turn off swap files ==========
 
 set noswapfile
