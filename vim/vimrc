@@ -9,6 +9,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'bling/vim-airline'
 Plugin 'kien/ctrlp.vim'
+Plugin 'rking/ag.vim'
 Plugin 'rstacruz/sparkup'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
@@ -41,6 +42,7 @@ set laststatus=2 " Make sure airline is always on
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'tomorrow'
 
+set backspace=indent,eol,start " Make backspace behave normally
 set clipboard=unnamed " Yank to the system clipboard
 
 " ========== Search Settings ==========
@@ -54,6 +56,13 @@ set nowrapscan  " Stop search at end of file
 set noswapfile
 set nobackup
 set nowb
+
+" ========== Persistent Undo ==========
+
+set undofile
+set undodir=~/.vim/undo
+set undolevels=1000
+set undoreload=10000
 
 " ========== Indentation ==========
 
@@ -82,8 +91,9 @@ nnoremap <C-L> <C-W><C-L>
 
 " CtrlP with current directory as a base
 nmap <Leader>p :execute 'CtrlP' getcwd()<CR>
+nmap <Leader>b :CtrlPBuffer<CR>
 nmap <Leader>s :SyntasticToggleMode<CR>
 nmap <Leader>[ :bp<CR>
 nmap <Leader>] :bn<CR>
-nmap <Leader>c :let @/ = ""<CR>
-nmap <Leader>n :NERDTreeToggle<CR>
+nmap <silent><Leader>c :let @/ = ""<CR>
+nmap <silent><Leader>n :NERDTreeToggle<CR>
