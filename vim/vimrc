@@ -79,6 +79,12 @@ set softtabstop=4
 
 set linebreak	" Wrap lines at convenient places
 
+" Show tabs and end of line characters
+set listchars=tab:▸\ ,eol:¬,space:·
+
+hi NonText ctermfg=244
+hi SpecialKey ctermfg=244
+
 " ========== Split Windows ==========
 
 set splitbelow
@@ -99,3 +105,6 @@ nmap <Leader>[ :bp<CR>
 nmap <Leader>] :bn<CR>
 nmap <silent><Leader>c :let @/ = ""<CR>
 nmap <silent><Leader>n :NERDTreeToggle<CR>
+
+" Toggle display of invisibles
+nmap <silent><Leader>l :set list!<CR>
