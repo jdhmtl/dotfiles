@@ -3,13 +3,23 @@
 set nocompatible
 filetype off
 
+" Because I can never remember Vundle commands:
+"
+" :PluginInstall
+" :PluginList
+" :PluginClean
+" :PluginSearch foo
+
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'bling/vim-airline'
+Plugin 'edsono/vim-matchit'
 Plugin 'jwalton512/vim-blade'
 Plugin 'kien/ctrlp.vim'
+Plugin 'mattn/emmet-vim'
 Plugin 'rking/ag.vim'
 Plugin 'rstacruz/sparkup'
 Plugin 'scrooloose/nerdtree'
@@ -30,7 +40,6 @@ syntax on	" Enable syntax highlighting
 set number
 set relativenumber
 
-set background=dark
 colorscheme xoria256
 
 set lazyredraw
@@ -52,8 +61,6 @@ set incsearch	" Search as we type
 set hlsearch	" Highlight search results
 set nowrapscan  " Stop search at end of file
 
-set wildignore+=*/vendor/** " Ignore files in vendor directory
-
 " ========== Turn off swap files ==========
 
 set noswapfile
@@ -62,10 +69,7 @@ set nowb
 
 " ========== Persistent Undo ==========
 
-set undofile
-set undodir=~/.vim/undo
-set undolevels=1000
-set undoreload=10000
+set hidden
 
 " ========== Indentation ==========
 
@@ -96,14 +100,32 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 
+" ========== FileType Specific Indentations  ==========
+
+" Not yet implemented but, rather than using ~/.vim/after/ftplugin, autocmd
+" can be used. For example:
+"
+" autocmd FileType yaml setlocal ts=2 sw=2 sts=2 expandtab
+"
+" Also, coerce extensions into certain filetypes:
+"
+" autocmd BufNewFile,BufRead *.ctp setfiletype php
+
+au BufRead,BufNewFile *.twig set filetype=htmljinja
+
+" ========== Auto Commands ==========
+
+" Automatically source .vimrc when making changes to it
+au BufWritePost .vimrc source $MYVIMRC
+
 " ========== Basic Key Mappings  ==========
 
 " CtrlP with current directory as a base
 nmap <Leader>p :execute 'CtrlP' getcwd()<CR>
 nmap <Leader>b :CtrlPBuffer<CR>
 nmap <Leader>s :SyntasticToggleMode<CR>
-nmap <Leader>[ :bp<CR>
-nmap <Leader>] :bn<CR>
+nmap <Leader>[ :bp!<CR>
+nmap <Leader>] :bn!<CR>
 nmap <silent><Leader>c :let @/ = ""<CR>
 nmap <silent><Leader>n :NERDTreeToggle<CR>
 
