@@ -15,3 +15,6 @@ alias apache="sudo vim /etc/apache2/httpd.conf"
 alias ws="sudo apachectl graceful"
 alias hosts="sudo vim /etc/hosts"
 alias pt="echo $PATH | tr ':' '\n'"
+
+alias mysql-start="launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist"
+alias mysql-stop="launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist"
