@@ -105,12 +105,18 @@ nnoremap <C-L> <C-W><C-L>
 "
 " autocmd BufNewFile,BufRead *.ctp setfiletype php
 
-au BufRead,BufNewFile *.twig set filetype=htmljinja
+augroup syntaxhighlighting
+  au!
+  au BufRead,BufNewFile *.twig set filetype=htmljinja
+augroup END
 
 " ========== Auto Commands ==========
 
 " Automatically source .vimrc when making changes to it
-au BufWritePost .vimrc source $MYVIMRC
+augroup autosourcing
+  au!
+  au BufWritePost .vimrc source $MYVIMRC
+augroup END
 
 " ========== Plugin Configuration ==========
 
@@ -137,3 +143,8 @@ nmap <silent><Leader>n :NERDTreeToggle<CR>
 
 " Toggle display of invisibles
 nmap <silent><Leader>l :set list!<CR>
+
+" ========== Allow Local .vimrc ==========
+
+set exrc
+set secure
