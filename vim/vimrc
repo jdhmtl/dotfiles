@@ -48,12 +48,6 @@ set ttyfast
 set cursorline
 set laststatus=2 " Make sure airline is always on
 
-" Load Powerline fonts
-let g:airline_powerline_fonts = 1
-let g:airline_theme = 'tomorrow'
-
-let g:gitgutter_sign_column_always = 1
-
 set backspace=indent,eol,start " Make backspace behave normally
 
 " ========== Search Settings ==========
@@ -118,7 +112,17 @@ au BufRead,BufNewFile *.twig set filetype=htmljinja
 " Automatically source .vimrc when making changes to it
 au BufWritePost .vimrc source $MYVIMRC
 
-" ========== Basic Key Mappings  ==========
+" ========== Plugin Configuration ==========
+
+let NERDTreeHijackNetrw = 0
+
+" Load Powerline fonts
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'tomorrow'
+
+let g:gitgutter_sign_column_always = 1
+
+" ========== Basic Key Mappings ==========
 
 " CtrlP with current directory as a base
 nmap <Leader>p :execute 'CtrlP' getcwd()<CR>
