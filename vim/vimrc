@@ -52,8 +52,9 @@ set laststatus=2 " Make sure airline is always on
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'tomorrow'
 
+let g:gitgutter_sign_column_always = 1
+
 set backspace=indent,eol,start " Make backspace behave normally
-set clipboard=unnamed " Yank to the system clipboard
 
 " ========== Search Settings ==========
 
@@ -65,7 +66,6 @@ set nowrapscan  " Stop search at end of file
 
 set noswapfile
 set nobackup
-set nowb
 
 " ========== Persistent Undo ==========
 
@@ -123,6 +123,7 @@ au BufWritePost .vimrc source $MYVIMRC
 " CtrlP with current directory as a base
 nmap <Leader>p :execute 'CtrlP' getcwd()<CR>
 nmap <Leader>b :CtrlPBuffer<CR>
+nmap <C-T> :CtrlPBufTag<CR>
 nmap <Leader>s :SyntasticToggleMode<CR>
 nmap <Leader>[ :bp!<CR>
 nmap <Leader>] :bn!<CR>
