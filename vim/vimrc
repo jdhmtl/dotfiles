@@ -125,6 +125,7 @@ let NERDTreeHijackNetrw = 0
 " Load Powerline fonts
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'tomorrow'
+set noshowmode " Don't need showmode when using Airline
 
 let g:gitgutter_sign_column_always = 1
 
