@@ -129,6 +129,10 @@ set noshowmode " Don't need showmode when using Airline
 
 let g:gitgutter_sign_column_always = 1
 
+" Gives a nice performance boost to CtrlP
+let g:ctrlp_use_cache = 1
+let g:ctrlp_clear_cache_on_exit = 0
+
 " ========== Basic Key Mappings ==========
 
 " CtrlP with current directory as a base
