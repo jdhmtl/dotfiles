@@ -139,7 +139,7 @@ let g:ctrlp_clear_cache_on_exit = 0
 nmap <Leader>p :execute 'CtrlP' getcwd()<CR>
 nmap <Leader>b :CtrlPBuffer<CR>
 nmap <C-T> :CtrlPBufTag<CR>
-nmap <C-E> :CtrlPMRUFiles<CR>
+nmap <C-M> :CtrlPMRUFiles<CR>
 nmap <Leader>s :SyntasticToggleMode<CR>
 nmap <Leader>[ :bp!<CR>
 nmap <Leader>] :bn!<CR>
