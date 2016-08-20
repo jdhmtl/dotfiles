@@ -1,8 +1,8 @@
 # Aliases
 
 alias cd=" cd"
-alias ls=" ls -G"
-alias ll=" ls -lhA"
+alias ls=" ls -GA"
+alias ll=" ls -lh"
 
 alias ..=" cd ..; ls"
 alias ...=" cd ../..; ls"

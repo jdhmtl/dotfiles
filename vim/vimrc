@@ -26,9 +26,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-surround'
-Plugin 'vim-ruby/vim-ruby'
 
 call vundle#end()
 filetype plugin indent on
@@ -141,8 +139,8 @@ nmap <Leader>b :CtrlPBuffer<CR>
 nmap <C-T> :CtrlPBufTag<CR>
 nmap <C-M> :CtrlPMRUFiles<CR>
 nmap <Leader>s :SyntasticToggleMode<CR>
-nmap <Leader>[ :bp!<CR>
-nmap <Leader>] :bn!<CR>
+nmap <silent><Leader>[ :bp!<CR>
+nmap <silent><Leader>] :bn!<CR>
 nmap <silent><Leader>c :let @/ = ""<CR>
 nmap <silent><Leader>n :NERDTreeToggle<CR>
 
