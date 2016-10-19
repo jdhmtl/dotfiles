@@ -7,6 +7,9 @@ if [ -f ~/Code/Dotfiles/shell/git ] ; then source ~/Code/Dotfiles/shell/git; fi
 if [ -f ~/.profile ] ; then source ~/.profile; fi
 
 . /usr/local/etc/profile.d/z.sh
+eval "$(thefuck --alias)"
+
+alias -s php=vim
 
 # History
 
