@@ -1,0 +1,6 @@
+" ========== Vim settings for PHPStorm ==========
+
+set number
+set rnu
+
+inoremap jj <ESC>
