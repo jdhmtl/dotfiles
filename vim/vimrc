@@ -1,6 +1,7 @@
 " ========== Vundle Config ==========
 
-set nocompatible
+" Unnecessary in Vim 8
+" set nocompatible
 filetype off
 
 " Because I can never remember Vundle commands:
