@@ -32,7 +32,8 @@ setopt PROMPT_SUBST
 
 BR=$'\n'
 GIT='$(__git_ps1 "  %s")'
-PROMPT="${BR}%{$fg[green]%}%T%{$fg[blue]%} %~%{$fg[yellow]%}${GIT}${BR}%{$fg_bold[white]%}❯%{$reset_color%} "
+# PROMPT="${BR}%{$fg[green]%}%T%{$fg[blue]%} %~%{$fg[yellow]%}${GIT}${BR}%{$fg_bold[white]%}❯%{$reset_color%} "
+PROMPT="${BR}%{$fg[green]%}%T%{$fg[blue]%} %~%{$fg[red]%}${GIT}${BR}%{$reset_color%}❯ "
 
 # Autocomplete
 

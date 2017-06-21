@@ -31,7 +31,6 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
 Plugin 'chriskempson/vim-tomorrow-theme'
-Plugin 'NLKNguyen/papercolor-theme'
 
 call vundle#end()
 filetype plugin indent on
@@ -42,6 +41,9 @@ syntax on   " Enable syntax highlighting
 
 set number
 set relativenumber
+
+" Let's try using true colors
+set termguicolors
 
 colorscheme Tomorrow-Night
 
@@ -92,10 +94,6 @@ set linebreak   " Wrap lines at convenient places
 set listchars=tab:▸\ ,trail:·,nbsp:…
 set list
 
-hi NonText ctermfg=243
-hi SpecialKey ctermfg=243
-hi LineNr ctermfg=8
-
 " ========== Split Windows ==========
 
 set splitbelow
@@ -103,14 +101,7 @@ set splitright
 
 " ========== FileType Specific Indentations  ==========
 
-" Not yet implemented but, rather than using ~/.vim/after/ftplugin, autocmd
-" can be used. For example:
-"
-" autocmd FileType yaml setlocal ts=2 sw=2 sts=2 expandtab
-"
-" Also, coerce extensions into certain filetypes:
-"
-" autocmd BufNewFile,BufRead *.ctp setfiletype php
+" Coerce extensions into certain filetypes:
 
 augroup syntaxhighlighting
   au!
@@ -146,8 +137,6 @@ let g:ctrlp_use_cache = 1
 let g:ctrlp_clear_cache_on_exit = 0
 
 " ========== Basic Key Mappings ==========
-
-inoremap jj <ESC>
 
 nmap <silent><Leader>[ :bp!<CR>
 nmap <silent><Leader>] :bn!<CR>
