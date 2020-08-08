@@ -1,7 +1,7 @@
 # Aliases
 
 alias cd=" cd"
-alias ls=" ls -GA"
+alias ls=" ls -G"
 alias ll=" ls -lh"
 
 alias ..=" cd ..; ls"
@@ -11,10 +11,4 @@ alias ....=" cd ../../..; ls"
 alias grep="grep --color=auto"
 alias gl="git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
-alias apache="sudo vim /etc/apache2/httpd.conf"
-alias ws="sudo apachectl graceful"
-alias hosts="sudo vim /etc/hosts"
 alias pt="echo $PATH | tr ':' '\n'"
-
-alias mysql-start="launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist"
-alias mysql-stop="launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist"

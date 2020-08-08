@@ -3,13 +3,12 @@ PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 ## Includes
 
 if [ -f ~/Code/Dotfiles/shell/aliases ] ; then source ~/Code/Dotfiles/shell/aliases; fi
-if [ -f ~/Code/Dotfiles/shell/git ] ; then source ~/Code/Dotfiles/shell/git; fi
 if [ -f ~/.profile ] ; then source ~/.profile; fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 . /usr/local/etc/profile.d/z.sh
 eval "$(thefuck --alias)"
-
-alias -s php=vim
 
 # History
 
@@ -30,10 +29,8 @@ colors
 
 setopt PROMPT_SUBST
 
-BR=$'\n'
-GIT='$(__git_ps1 "  %s")'
-# PROMPT="${BR}%{$fg[green]%}%T%{$fg[blue]%} %~%{$fg[yellow]%}${GIT}${BR}%{$fg_bold[white]%}❯%{$reset_color%} "
-PROMPT="${BR}%{$fg[green]%}%T%{$fg[blue]%} %~%{$fg[red]%}${GIT}${BR}%{$reset_color%}❯ "
+# PROMPT="${BR}%{$fg[green]%}%T%{$fg[blue]%} %~%{$fg[red]%}${GIT}${BR}%{$reset_color%}❯ "
+PROMPT="%{$fg[green]%}%T %{$reset_color%}❯ "
 
 # Autocomplete
 
