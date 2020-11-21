@@ -29,8 +29,7 @@ colors
 
 setopt PROMPT_SUBST
 
-# PROMPT="${BR}%{$fg[green]%}%T%{$fg[blue]%} %~%{$fg[red]%}${GIT}${BR}%{$reset_color%}❯ "
-PROMPT="%{$fg[green]%}%T %{$reset_color%}❯ "
+PROMPT="%{$fg[blue]%}%~ %{$reset_color%}❯ "
 
 # Autocomplete
 
