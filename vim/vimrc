@@ -1,7 +1,5 @@
 " ========== Vundle Config ==========
 
-" Unnecessary in Vim 8
-" set nocompatible
 filetype off
 
 " Because I can never remember Vundle commands:
@@ -16,14 +14,17 @@ set rtp+=/usr/local/opt/fzf
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'gmarik/Vundle.vim'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'itchyny/lightline.vim'
-Plugin 'junegunn/fzf.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'dense-analysis/ale'
+Plugin 'VundleVim/Vundle.vim'           " Plugin manager
+Plugin 'airblade/vim-gitgutter'         " Displays +/- in gutter
+Plugin 'dense-analysis/ale'             " Code linter
+Plugin 'itchyny/lightline.vim'          " Fancy modeline
+Plugin 'junegunn/fzf.vim'               " Fuzzy finder
+Plugin 'rking/ag.vim'                   " Vim plugin for Ag
+Plugin 'tpope/vim-fugitive'             " Git blame et al.
 
+" Color schemes
 Plugin 'morhetz/gruvbox'
+Plugin 'rakr/vim-one'
 
 call vundle#end()
 filetype plugin indent on
@@ -34,11 +35,10 @@ syntax on   " Enable syntax highlighting
 
 set number
 set relativenumber
+set cursorline
 
-" Let's try using true colors
 set termguicolors
-
-colorscheme gruvbox
+colorscheme one
 
 set lazyredraw
 set ttyfast
@@ -88,14 +88,24 @@ set list
 set splitbelow
 set splitright
 
-" ========== FileType Specific Indentations  ==========
+" ========== Basic Key Mappings ==========
 
-" Coerce extensions into certain filetypes:
+nmap <silent><Leader>[ :bp!<CR>
+nmap <silent><Leader>] :bn!<CR>
+nmap <silent><Leader>c :let @/ = ""<CR>
+nmap <silent><Leader>w :set wrap!<CR>
 
-augroup syntaxhighlighting
-  au!
-  au BufRead,BufNewFile *.twig set filetype=htmljinja
-augroup END
+" Toggle display of invisibles
+nmap <silent><Leader>l :set list!<CR>
+
+" FZF
+nmap <silent><Leader>p :Files<CR>
+nmap <silent><Leader>b :Buffers<CR>
+nmap <silent><Leader>t :Tags<CR>
+nmap <silent><Leader>r :BTags<CR>
+
+" Git blame
+nmap <silent><Leader>g :Gblame!<CR>
 
 " ========== Auto Commands ==========
 
@@ -112,25 +122,12 @@ let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_sizestyle = "H"
 
-let g:gitgutter_sign_column_always = 1
+let g:lightline = { 'colorscheme': 'one' }
 
-let g:lightline = { 'colorscheme': 'gruvbox' }
+set signcolumn=yes
 
-let g:jsx_ext_required = 0
-
-" ========== Basic Key Mappings ==========
-
-nmap <silent><Leader>[ :bp!<CR>
-nmap <silent><Leader>] :bn!<CR>
-nmap <silent><Leader>c :let @/ = ""<CR>
-
-" Toggle display of invisibles
-nmap <silent><Leader>l :set list!<CR>
-nmap <silent><Leader>w :set wrap!<CR>
-
-" FZF
-nmap <silent><Leader>p :Files<CR>
-nmap <silent><Leader>b :Buffers<CR>
+" Ag.vim
+let g:ag_prg="ag -U --ignore .git --ignore tags --vimgrep"
 
 " ========== Allow Local .vimrc ==========
 

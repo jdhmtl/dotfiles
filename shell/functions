@@ -1,0 +1,57 @@
+# vim: ft=sh
+
+git-branch() {
+  local branchName=$(git symbolic-ref -q --short HEAD)
+
+  # There is no branch name in a detached state, so get the commit hash instead
+  if [[ -z "${branchName}" ]]; then
+    git log -n 1 --pretty=%h HEAD
+  else
+    echo "${branchName}"
+  fi
+}
+
+git-dir() {
+  git rev-parse --git-dir 2> /dev/null
+}
+
+git-prompt() {
+  local gitDir=$(git-dir)
+  if [[ -z "${gitDir}" ]]; then
+    echo ''
+  else
+    git-branch
+  fi
+}
+
+changed-files() {
+  local gitDir=$(git-dir)
+
+  # If we're not looking at a Git directory, do nothing
+  if [[ -z "${gitDir}" ]]; then
+    return 1
+  fi
+
+  local branch=${1:-}
+
+  # If we don't have a branch name, get the name of the current branch
+  if [[ -z ${branch} ]]; then
+    branch=$(git-branch)
+  fi
+
+  git diff --name-only $(git merge-base "${branch}" origin/master)..$(git log -n 1 --pretty=format:"%H" "${branch}")
+}
+
+newdir() {
+  local target=${1}
+
+  if [[ -z "${target}" ]]; then
+    return 1
+  fi
+
+  mkdir -p "${target}" && cd "${target}"
+}
+
+undangle() {
+  docker image rm $(docker image ls --filter dangling=true)
+}

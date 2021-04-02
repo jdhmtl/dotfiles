@@ -1,0 +1,53 @@
+PATH="/usr/local/sbin:$PATH"
+PATH="/usr/local/opt/fzf/bin:$PATH"
+PATH="/usr/local/opt/php/bin:$PATH"
+PATH="~/.composer/vendor/bin:$PATH"
+
+## Includes
+
+if [ -f ~/.dotfiles/shell/aliases ] ; then source ~/.dotfiles/shell/aliases; fi
+if [ -f ~/.dotfiles/shell/functions ] ; then source ~/.dotfiles/shell/functions; fi
+if [ -f ~/.fzf.zsh ] ; then source ~/.fzf.zsh; fi
+
+# Git prompt
+precmd() {
+  BRANCH=$(git-prompt)
+  if [[ -z "${BRANCH}" ]]; then
+    GIT=''
+  else
+    GIT=" %{$fg[magenta]%}${BRANCH}"
+  fi
+}
+
+eval "$(thefuck --alias)"
+. /usr/local/etc/profile.d/z.sh
+
+# History
+
+HISTFILE=~/.config/zsh/history
+HISTSIZE=1000
+SAVEHIST=1000
+
+setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_NO_STORE
+setopt HIST_IGNORE_SPACE
+
+# Prompt
+
+autoload -U colors
+colors
+
+setopt PROMPT_SUBST
+
+PROMPT='%{$fg[blue]%}%~${GIT} %{$fg[red]%}❯%{$fg[yellow]%}❯%{$fg[green]%}❯%{$reset_color%} '
+
+# Autocomplete
+
+autoload -Uz compinit
+compinit
+
+if [ -f ~/.dotfiles/shell/zshrc.local ]; then source ~/.dotfiles/shell/zshrc.local; fi
+
+export PATH

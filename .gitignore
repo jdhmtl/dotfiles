@@ -1,1 +1,4 @@
 vim/.netrwhist
+
+# Allow for location-specific configurations
+*.local

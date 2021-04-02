@@ -8,7 +8,14 @@ alias ..=" cd ..; ls"
 alias ...=" cd ../..; ls"
 alias ....=" cd ../../..; ls"
 
-alias grep="grep --color=auto"
-alias gl="git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias path="echo $PATH | tr ':' '\n'"
 
-alias pt="echo $PATH | tr ':' '\n'"
+# Set defaults for common commands
+alias grep="grep --color=auto"
+alias tree="tree -C"
+
+# Git
+alias gl="git log --pretty=format:'%Cred%h%Creset %Cgreen%cs %C(blue)%<(20)%an%Creset %s %C(magenta)%d%Creset' --abbrev-commit"
+alias shit="git reset --soft HEAD~1"
+
+if [ -f ~/.dotfiles/shell/aliases.local ]; then source ~/.dotfiles/shell/aliases.local; fi
