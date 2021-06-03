@@ -1,7 +1,7 @@
 PATH="/usr/local/sbin:$PATH"
 PATH="/usr/local/opt/fzf/bin:$PATH"
 PATH="/usr/local/opt/php/bin:$PATH"
-PATH="~/.composer/vendor/bin:$PATH"
+PATH="$HOME/.composer/vendor/bin:$PATH"
 
 ## Includes
 
