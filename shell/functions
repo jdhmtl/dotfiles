@@ -1,5 +1,15 @@
 # vim: ft=sh
 
+# For a given commit hash, display the author's email
+git-author() {
+    local hash=${1}
+    if [[ -z "${hash}" ]]; then
+        return 1
+    fi
+
+    echo $(git log --format='%ae' ${hash}^!)
+}
+
 git-branch() {
   local branchName=$(git symbolic-ref -q --short HEAD)
 
