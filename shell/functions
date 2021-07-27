@@ -61,7 +61,3 @@ newdir() {
 
   mkdir -p "${target}" && cd "${target}"
 }
-
-undangle() {
-  docker image rm $(docker image ls --filter dangling=true)
-}
