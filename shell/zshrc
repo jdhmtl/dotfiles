@@ -1,13 +1,14 @@
 PATH="/usr/local/sbin:$PATH"
-PATH="/usr/local/opt/fzf/bin:$PATH"
-PATH="/usr/local/opt/php/bin:$PATH"
-PATH="$HOME/.composer/vendor/bin:$PATH"
 
 ## Includes
 
 if [ -f ~/.dotfiles/shell/aliases ] ; then source ~/.dotfiles/shell/aliases; fi
 if [ -f ~/.dotfiles/shell/functions ] ; then source ~/.dotfiles/shell/functions; fi
 if [ -f ~/.fzf.zsh ] ; then source ~/.fzf.zsh; fi
+
+if [ -f /usr/local/etc/profile.d/z.sh ]; then
+    . /usr/local/etc/profile.d/z.sh
+fi
 
 # Git prompt
 precmd() {
@@ -20,7 +21,6 @@ precmd() {
 }
 
 eval "$(thefuck --alias)"
-. /usr/local/etc/profile.d/z.sh
 
 # History
 

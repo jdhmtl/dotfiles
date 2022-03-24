@@ -1,36 +1,3 @@
-" ========== Vundle Config ==========
-
-filetype off
-
-" Because I can never remember Vundle commands:
-"
-" :PluginInstall
-" :PluginUpdate
-" :PluginList
-" :PluginClean
-" :PluginSearch foo
-
-set rtp+=/usr/local/opt/fzf
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-Plugin 'VundleVim/Vundle.vim'           " Plugin manager
-Plugin 'airblade/vim-gitgutter'         " Displays +/- in gutter
-Plugin 'dense-analysis/ale'             " Code linter
-Plugin 'itchyny/lightline.vim'          " Fancy modeline
-Plugin 'junegunn/fzf.vim'               " Fuzzy finder
-Plugin 'rking/ag.vim'                   " Vim plugin for Ag
-Plugin 'tpope/vim-fugitive'             " Git blame et al.
-
-" Color schemes
-Plugin 'morhetz/gruvbox'
-Plugin 'rakr/vim-one'
-
-call vundle#end()
-filetype plugin indent on
-
-" ========== General Config ==========
-
 syntax on   " Enable syntax highlighting
 
 set number
@@ -38,7 +5,6 @@ set relativenumber
 set cursorline
 
 set termguicolors
-colorscheme one
 
 set lazyredraw
 set ttyfast
@@ -98,15 +64,6 @@ nmap <silent><Leader>w :set wrap!<CR>
 " Toggle display of invisibles
 nmap <silent><Leader>l :set list!<CR>
 
-" FZF
-nmap <silent><Leader>p :Files<CR>
-nmap <silent><Leader>b :Buffers<CR>
-nmap <silent><Leader>t :Tags<CR>
-nmap <silent><Leader>r :BTags<CR>
-
-" Git blame
-nmap <silent><Leader>g :Gblame!<CR>
-
 " ========== Auto Commands ==========
 
 " Automatically source .vimrc when making changes to it
@@ -115,19 +72,6 @@ augroup autosourcing
   au BufWritePost .vimrc source $MYVIMRC
   au BufWritePost vimrc source $MYVIMRC
 augroup END
-
-" ========== Plugin Configuration ==========
-
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_sizestyle = "H"
-
-let g:lightline = { 'colorscheme': 'one' }
-
-set signcolumn=yes
-
-" Ag.vim
-let g:ag_prg="ag -U --ignore .git --ignore tags --vimgrep"
 
 " ========== Allow Local .vimrc ==========
 
