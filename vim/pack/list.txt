@@ -1,0 +1,9 @@
+Until I can come up with a better way of listing the plugins in use without actually including them.
+
+colors/
+    start/
+        github.com/rakr/vim-one
+
+plugins/
+    start/
+        github.com/itchyny/lightline.vim

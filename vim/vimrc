@@ -1,4 +1,8 @@
+" ========== UI Settings ==========
+
 syntax on   " Enable syntax highlighting
+
+colorscheme one
 
 set number
 set relativenumber
@@ -44,6 +48,7 @@ set shiftwidth=4
 set softtabstop=4
 
 set linebreak   " Wrap lines at convenient places
+set textwidth=120
 
 " Show tabs and end of line characters
 set listchars=tab:▸\ ,trail:·,nbsp:…
@@ -77,3 +82,13 @@ augroup END
 
 set exrc
 set secure
+
+" ========== Plugin Settings ==========
+
+" Netrw
+
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_sizestyle = 'H'
+
+let g:lightline = { 'colorscheme': 'one' }
