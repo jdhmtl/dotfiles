@@ -1,2 +1,8 @@
 .DS_Store
+.ctags.d/
 .idea/
+.tool-versions
+.vimrc
+docker-compose.override.yml
+modules/parcel-reporter-manifest/
+tags

@@ -2,8 +2,16 @@ Until I can come up with a better way of listing the plugins in use without actu
 
 colors/
     start/
+        github.com/arcticicestudio/nord-vim
+        github.com/nanotech/jellybeans.vim
         github.com/rakr/vim-one
 
 plugins/
     start/
+        github.com/dense-analysis/ale
         github.com/itchyny/lightline.vim
+        github.com/junegunn/fzf.vim
+        github.com/maximbaz/lightline-ale
+        github.com/rking/ag.vim
+        github.com/tpope/vim-rails
+        github.com/tpope/vim-fugitive

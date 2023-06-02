@@ -1,14 +1,18 @@
+" ========== External Apps ==========
+
+set rtp+=/usr/local/opt/fzf
+
 " ========== UI Settings ==========
 
 syntax on   " Enable syntax highlighting
 
-colorscheme one
+set termguicolors
+
+colorscheme dark_plus
 
 set number
 set relativenumber
 set cursorline
-
-set termguicolors
 
 set lazyredraw
 set ttyfast
@@ -37,6 +41,8 @@ set undofile
 set undodir=~/.vim/undo
 
 " ========== Indentation ==========
+
+filetype plugin indent on
 
 set autoindent
 set smartindent
@@ -69,6 +75,14 @@ nmap <silent><Leader>w :set wrap!<CR>
 " Toggle display of invisibles
 nmap <silent><Leader>l :set list!<CR>
 
+" FZF
+nmap <silent><Leader>p :Files<CR>
+nmap <silent><Leader>b :Buffers<CR>
+nmap <silent><Leader>t :Tags<CR>
+nmap <silent><Leader>r :BTags<CR>
+
+nmap <silent><Leader>g :Git blame<CR>
+
 " ========== Auto Commands ==========
 
 " Automatically source .vimrc when making changes to it
@@ -86,9 +100,25 @@ set secure
 " ========== Plugin Settings ==========
 
 " Netrw
-
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_sizestyle = 'H'
 
+" Lightline
 let g:lightline = { 'colorscheme': 'one' }
+
+" Ag
+let g:ag_prg="ag -U --ignore .git --ignore tags --vimgrep"
+
+" Ale
+let g:ale_sign_error = '●'
+let g:ale_sign_warning = '.'
+
+let g:ale_linters_explicit = 1
+let g:ale_fixers = { '*': ['trim_whitespace'] }
+
+" ========== Generate Help Files ==========
+packloadall
+silent! helptags ALL
+
+set grepprg=ag\ --vimgrep

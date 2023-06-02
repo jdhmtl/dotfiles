@@ -10,6 +10,10 @@ if [ -f /usr/local/etc/profile.d/z.sh ]; then
     . /usr/local/etc/profile.d/z.sh
 fi
 
+if [ -f /usr/local/opt/asdf/libexec/asdf.sh ]; then
+    . /usr/local/opt/asdf/libexec/asdf.sh
+fi
+
 # Git prompt
 precmd() {
   BRANCH=$(git-prompt)
@@ -42,6 +46,7 @@ colors
 setopt PROMPT_SUBST
 
 PROMPT='%{$fg[blue]%}%~${GIT} %{$fg[red]%}❯%{$fg[yellow]%}❯%{$fg[green]%}❯%{$reset_color%} '
+# PROMPT='%{$fg[red]%}❯%{$fg[yellow]%}❯%{$fg[green]%}❯%{$reset_color%} '
 
 # Autocomplete
 
@@ -50,4 +55,5 @@ compinit
 
 if [ -f ~/.dotfiles/shell/zshrc.local ]; then source ~/.dotfiles/shell/zshrc.local; fi
 
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 export PATH
