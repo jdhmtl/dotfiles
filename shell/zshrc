@@ -1,4 +1,6 @@
 PATH="/usr/local/sbin:$PATH"
+PATH="/opt/homebrew/bin:$PATH"
+PATH="/opt/homebrew/sbin:$PATH"
 
 ## Includes
 
@@ -6,12 +8,12 @@ if [ -f ~/.dotfiles/shell/aliases ] ; then source ~/.dotfiles/shell/aliases; fi
 if [ -f ~/.dotfiles/shell/functions ] ; then source ~/.dotfiles/shell/functions; fi
 if [ -f ~/.fzf.zsh ] ; then source ~/.fzf.zsh; fi
 
-if [ -f /usr/local/etc/profile.d/z.sh ]; then
-    . /usr/local/etc/profile.d/z.sh
+if [ -f /opt/homebrew/etc/profile.d/z.sh ]; then
+    . /opt/homebrew/etc/profile.d/z.sh
 fi
 
-if [ -f /usr/local/opt/asdf/libexec/asdf.sh ]; then
-    . /usr/local/opt/asdf/libexec/asdf.sh
+if [ -f /opt/homebrew/opt/asdf/libexec/asdf.sh ]; then
+    . /opt/homebrew/opt/asdf/libexec/asdf.sh
 fi
 
 # Git prompt
