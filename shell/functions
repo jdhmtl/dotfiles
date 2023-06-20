@@ -49,7 +49,7 @@ changed-files() {
     branch=$(git-branch)
   fi
 
-  git diff --name-only $(git merge-base "${branch}" origin/master)..$(git log -n 1 --pretty=format:"%H" "${branch}")
+  git diff --name-only $(git merge-base "${branch}" origin/main)..$(git log -n 1 --pretty=format:"%H" "${branch}")
 }
 
 newdir() {
