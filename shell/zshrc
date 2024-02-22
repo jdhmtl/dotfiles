@@ -1,3 +1,4 @@
+PATH="$HOME/.local/bin:$PATH"
 PATH="/usr/local/sbin:$PATH"
 PATH="/opt/homebrew/bin:$PATH"
 PATH="/opt/homebrew/sbin:$PATH"
@@ -58,4 +59,5 @@ compinit
 if [ -f ~/.dotfiles/shell/zshrc.local ]; then source ~/.dotfiles/shell/zshrc.local; fi
 
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+# export BUNDLE_ONLY=lint
 export PATH
